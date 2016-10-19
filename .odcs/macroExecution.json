@@ -1,0 +1,11 @@
+{
+  "properties": {
+    "runCommands": [
+      {
+        "commandName": "NPM Install",
+        "commandValue": "npm install",
+        "handlerId": "TERMINAL_HANDLER"
+      }
+    ]
+  }
+}

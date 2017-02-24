@@ -1,0 +1,168 @@
+#%RAML 0.8
+title: pets
+version: 1.0
+baseUri: /mobile/custom/pets3
+protocols: [HTTPS]
+/pets:
+  displayName: Pets Collection
+  get:
+    displayName: Get Pets
+    description: |
+      Get all pets
+      
+    protocols: [HTTPS]
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                  "id": "1",
+                  "name": "Sophie",
+                  "species": "Dog",
+                  "breed": "Golden Retriever",
+                  "age": "14",
+                  "vetId": "piedmont"
+                },
+                {
+                  "id": "2",
+                  "name": "Cookie",
+                  "species": "Cat",
+                  "breed": "Domestic Short Hair",
+                  "age": "14",
+                  "vetId": "blueRidge"
+                }
+              ]
+              
+  post:
+    displayName: Add Pet
+    description: |
+      Add a new pet
+      
+    protocols: [HTTPS]
+    body:
+      application/json:
+        example: |
+          {
+            "name": "Oreo",
+            "species": "Cat",
+            "breed": "Domestic Short Hair",
+            "age": "14",
+            "vetId": "blueRidge"
+          }
+          
+    responses:
+      201:
+        body:
+          application/json:
+            example: |
+              {
+                "id": "3",
+                "name": "Oreo",
+                "species": "Cat",
+                "breed": "Domestic Short Hair",
+                "age": "14",
+                "vetId": "blueRidge"
+              }
+              
+  /{id}:
+    displayName: Pet Instance
+    uriParameters:
+      id:
+        displayName: id
+        type: string
+        required: true
+    get:
+      displayName: Get a Pet
+      description: |
+        Get an instance of a pet
+        
+      responses:
+        200:
+          body:
+            application/json:
+              example: |
+                {
+                  "id": "1",
+                  "name": "Sophie",
+                  "species": "Dog",
+                  "breed": "Golden Retriever",
+                  "age": "14",
+                  "vetId": "piedmont"
+                }
+                
+    put:
+      displayName: Update Pet
+      description: |
+        Update pet properties
+        
+      body:
+        application/json:
+          example: |
+            {
+              "id": "1",
+              "name": "Sophie",
+              "species": "Dog",
+              "breed": "Golden Retriever",
+              "age": "14",
+              "vetId": "blueRidge"
+            }
+            
+    patch:
+      body:
+        application/json:
+          example: |
+            {
+              "id": "1",
+              "vetId": "blueRidge"
+            }
+            
+    delete:
+      displayName: Delete Pet
+      description: |
+        Delete a pet
+        
+      responses:
+        200:
+          description: |
+            Returns the object that was deleted.
+            
+          body:
+            application/json:
+              example: |
+                {
+                  "id": "1",
+                  "name": "Sophie",
+                  "species": "Dog",
+                  "breed": "Golden Retriever",
+                  "age": "14",
+                  "vetId": "blueRidge"
+                }
+                
+/vets:
+  displayName: Vets Collection
+  get:
+    displayName: Get Vets
+    description: |
+      Get a list of vets
+      
+    protocols: [HTTPS]
+    responses:
+      200:
+        body:
+          application/json:
+            example: |
+              [
+                {
+                	"vetId": "blueRidge",
+                	"name": "Blue Ridge Vet",
+                	"address": "Purcellville VA"
+                },
+                {
+                  "vetId": "piedmont",
+                  "name": "Piedmont Equine Small Animal Clinic",
+                  "address": "Marshall VA"
+                }
+              ]
+              

@@ -25,9 +25,9 @@ module.exports = function(service) {
 			if (acceptType == 'application/json'){
 				result = [
 					  {
-					  	"vetId": "blueRidge",
-					  	"name": "Blue Ridge Vet",
-					  	"address": "Purcellville VA"
+					  	"vetId": "AnotherVet"
+					  	"name": "Another Vet",
+					  	"address": "Leesburg VA"
 					  },
 					  {
 					    "vetId": "piedmont",

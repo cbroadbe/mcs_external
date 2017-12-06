@@ -1,0 +1,12 @@
+{
+  "name" : "chrisgithub",
+  "version" : "1.0.0",
+  "description" : "s",
+  "main" : "chrisgithub.js",
+  "oracleMobile" : {
+    "dependencies" : {
+      "apis" : { },
+      "connectors" : { }
+    }
+  }
+}
